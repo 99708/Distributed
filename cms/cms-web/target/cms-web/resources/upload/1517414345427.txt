@@ -1,0 +1,5 @@
+
+1¡¢Ìø¹ı¼ì²â
+	clean install -DskipTests=true
+2¡¢admin 123 md5
+192023a7bbd73250516f069df18b500

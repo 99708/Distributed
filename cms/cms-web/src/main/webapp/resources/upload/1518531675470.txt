@@ -1,0 +1,11 @@
+1、跳过检测
+	clean install -DskipTests=true
+2、admin 123 md5
+	192023a7bbd73250516f069df18b500
+3、通过maven创建项目（在study文件夹下创建study-spring）
+	mvn archetype:generate -DgroupId=com.study  -DartifactId=study-spring -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+4、eclipse maven 相关配置
+	D:\Program Files\maven\maven-repository-3.3.9\settings.xml
+	D:\Program Files\maven\maven-repository-3.3.9\repository
+	Courier New
+	D:\Program Files\maven\apache-maven-3.3.9\conf\settings.xml

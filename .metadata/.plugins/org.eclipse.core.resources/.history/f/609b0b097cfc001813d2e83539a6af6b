@@ -1,0 +1,16 @@
+package com.xyq.main;
+
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+
+public class Provider {
+	public static void main(String[] args) {
+		try {
+			//注册发布的远程服务端口
+			LocateRegistry.createRegistry(8888);
+			
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
+}

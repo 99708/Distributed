@@ -1,0 +1,5 @@
+package com.xyq.service.impl;
+
+public class UserServiceImpl {
+
+}

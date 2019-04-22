@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.xyq.web</groupId>
+  <artifactId>WebDeploy</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <dependencies>
+	<!--配置web项目必须的依赖 -->
+	<!--配置servlet依赖 -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>4.0.1</version>
+		<scope>provided</scope>
+	</dependency>
+	<!--配置jsp依赖 -->
+	<dependency>
+		<groupId>javax.servlet.jsp</groupId>
+		<artifactId>javax.servlet.jsp-api</artifactId>
+		<version>2.2.1</version>
+		<scope>provided</scope>
+		<!-- scope属性：设置当前依赖的包的作用域 test:只在测试中生效 compile:在编译，测试，打包，运行中，默认值 provided:在编译，测试中有效，打包是不会使用 
+			runtime:在运行中有效。 -->
+	</dependency>
+	<!--配置jstl依赖 -->
+	<dependency>
+		<groupId>javax.servlet.jsp.jstl</groupId>
+		<artifactId>jstl</artifactId>
+		<version>1.2</version>
+	</dependency>
+</dependencies>
+	<!--配置插件 -->
+	<build>
+		<plugins>
+			<plugin>
+				<!--tomcat的坐标 -->
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<path>/web2</path>
+					<url>http://127.0.0.1:8080/manager/text</url>
+					<server>tomcat7</server>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+  
+</project>

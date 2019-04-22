@@ -1,0 +1,13 @@
+org\xyq\cms\dao\TestChannelDao.class
+org\xyq\cms\dao\TestAttachmentDao.class
+org\xyq\cms\dao\TestTopicDao.class
+org\xyq\cms\dao\TestEnum.class
+org\xyq\basic\test\util\DbUtil.class
+org\xyq\cms\dao\TestUser.class
+org\xyq\basic\test\util\AbstractDbUnitTestCase.class
+org\xyq\cms\dao\TestUserDao.class
+org\xyq\cms\dao\TestGroupDao.class
+org\xyq\cms\dao\TestRoleDao.class
+org\xyq\basic\test\util\TestUtil.class
+org\xyq\cms\dao\TestKeywordDao.class
+org\xyq\basic\test\util\EntitiesHelper.class

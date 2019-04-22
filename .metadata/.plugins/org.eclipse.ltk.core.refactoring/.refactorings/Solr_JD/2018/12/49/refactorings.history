@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 2 elements from project &apos;Solr_JD&apos;&#x0D;&#x0A;- Original project: &apos;Solr_JD&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     db.properties&#x0D;&#x0A;     log4j.properties" description="Delete elements" element1="src/main/resources/db.properties" element2="src/main/resources/log4j.properties" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="2" stamp="1543916094231" subPackages="false" version="1.0"/>
+</session>

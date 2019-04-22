@@ -1,0 +1,52 @@
+package com.xyq.service.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+import org.apache.solr.client.solrj.beans.DocumentObjectBinder;
+import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.common.SolrDocumentList;
+import org.springframework.stereotype.Service;
+
+import com.xyq.dao.ProductDao;
+import com.xyq.entity.Page;
+import com.xyq.entity.Parameter;
+import com.xyq.entity.Product;
+import com.xyq.service.ProductService;
+
+@Service
+public class ProductServiceImpl implements ProductService {
+
+	@Resource
+	private ProductDao productDao;
+	
+	@Override
+	public Page getProductInfo(Parameter parameter) {
+		Page page = new Page();
+		page.setParameter(parameter);
+		QueryResponse response = productDao.getProduct(parameter);
+		//获得分页数据
+		SolrDocumentList results = response.getResults();
+		//将分页数据转换为java集合
+		DocumentObjectBinder dob = new DocumentObjectBinder();
+		List<Product> beans = dob.getBeans(Product.class, results);
+		//获得高亮map
+		Map<String, Map<String, List<String>>> highlighting = response.getHighlighting();
+		//将分页集合数据中要高亮的替换为高亮
+		for(Product p:beans) {
+			Map<String, List<String>> map = highlighting.get(p.getId());
+			List<String> list = map.get("pro_name");
+			if(list != null && list.size() > 0) {
+				p.setPro_name(list.get(0));
+			}
+		}
+		page.setProducts(beans);
+		//获取总的文档数
+		long numFound = results.getNumFound();
+		page.setCount(numFound);
+		return page;
+	}
+
+}

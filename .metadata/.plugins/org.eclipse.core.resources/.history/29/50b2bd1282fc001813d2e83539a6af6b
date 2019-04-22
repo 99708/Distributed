@@ -1,0 +1,26 @@
+package com.xyq.main;
+
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+
+import com.xyq.service.UserService;
+
+public class Consumer {
+	public static void main(String[] args) {
+		
+		try {
+			//定义远程访问的url
+			String url = "rmi://localhost:8888/rmi";
+			//获取要访问的代理对象
+			UserService userService = (UserService) Naming.lookup("url");
+			//观察是否是代理对象
+			System.out.println(userService.getClass());
+			//执行方法
+			System.out.println(userService.sayHello("张三"));
+		} catch (MalformedURLException | RemoteException | NotBoundException e) {
+			e.printStackTrace();
+		}
+	}
+}

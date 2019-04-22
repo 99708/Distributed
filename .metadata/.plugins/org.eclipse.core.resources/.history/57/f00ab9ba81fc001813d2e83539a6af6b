@@ -1,0 +1,31 @@
+package com.xyq.main;
+
+import java.rmi.Naming;
+import java.rmi.registry.LocateRegistry;
+
+import com.xyq.service.UserService;
+import com.xyq.service.impl.UserServiceImpl;
+
+public class Provider {
+	public static void main(String[] args) {
+		try {
+			try {
+				//注册发布的远程服务的访问端口
+				LocateRegistry.createRegistry(8888);
+				
+				//定义访问远程服务的URL
+				String name="rmi://localhost:8888/rmi";
+				
+				//创建UserServiceImpl实现类对象,提供远程服务的对象
+				UserService userService = new UserServiceImpl();
+				
+				//该提供远程服务的对象，绑定一个URL
+				Naming.bind(name, userService);
+				
+				System.out.println("===========发布rmi远程服务============");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+}

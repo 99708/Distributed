@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 4 elements to &apos;Solr_JD/src/main/resources&apos;&#x0D;&#x0A;- Original project: &apos;Login-Controller&apos;&#x0D;&#x0A;- Destination element: &apos;Solr_JD/src/main/resources&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     springmvc.xml&#x0D;&#x0A;     applicationcontext.xml&#x0D;&#x0A;     db.properties&#x0D;&#x0A;     log4j.properties" description="Copy files" destination="=Solr_JD/src\/main\/resources" element1="src/main/resources/springmvc.xml" element2="src/main/resources/applicationcontext.xml" element3="src/main/resources/db.properties" element4="src/main/resources/log4j.properties" files="4" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1543916087164" units="0" version="1.0"/>
+</session>

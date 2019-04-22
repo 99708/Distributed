@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.xyq.test</groupId>
+  <artifactId>ParentMaven</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  <properties>
+  	<servlet.version>4.0.1</servlet.version>
+  	<jsp.version>2.2.1</jsp.version>
+  </properties>
+  
+  <dependencyManagement>
+	<dependencies>
+		<!--配置web项目必须的依赖 -->
+		<!--配置servlet依赖 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!--配置jsp依赖 -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>${jsp.version}</version>
+			<scope>provided</scope>
+			<!-- scope属性：设置当前依赖的包的作用域 test:只在测试中生效 compile:在编译，测试，打包，运行中，默认值 provided:在编译，测试中有效，打包是不会使用 
+				runtime:在运行中有效。 -->
+		</dependency>
+		<!--配置jstl依赖 -->
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
+  
+</project>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        ">
+        <!--配置注解扫描 -->
+        	<context:component-scan base-package="com.xyq.controller"></context:component-scan>
+        <!--配置注解解析器  -->
+       		<mvc:annotation-driven></mvc:annotation-driven>
+        <!--配置静态资源放行  -->
+	        <mvc:resources location="/WEB-INF/js/" mapping="/js/**"></mvc:resources>
+	        <mvc:resources location="/WEB-INF/css/" mapping="/css/**"></mvc:resources>
+	        <mvc:resources location="/WEB-INF/images/" mapping="/images/**"></mvc:resources>
+        <!--配置自定义视图解析器  -->
+	       	<bean id="resourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	       		<property name="prefix" value="/WEB-INF/"></property>
+	       		<property name="suffix" value=".jsp"></property>
+	       	</bean>
+        <!--配置上传解析bean  -->
+        	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        		<property name="defaultEncoding" value="utf-8"></property><!-- 设置解析编码格式 -->
+    			<property name="maxInMemorySize" value="10485760"></property><!-- 设置上传数据的总大小  字节-->
+    			<property name="maxUploadSize" value="1024128392"></property><!--设置单个文件大小  字节-->
+        	</bean>
+        <!--配置指定异常跳转备bean  -->
+        	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        		<property name="exceptionMappings" >
+        			<props>
+        				<prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">limit.jsp</prop>
+        			</props>
+        		</property>
+        	</bean>
+     </beans>
+     
